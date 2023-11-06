@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/unitree/ICE9/autostart/autostart.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=ICE9 autostart
+Name=ICE9 autostart
+Comment[en_US]=Starts the software developed by Ice Nine
+Comment=Starts the software developed by Ice Nine

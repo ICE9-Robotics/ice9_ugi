@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/unitree/UnitreeSLAM/catkin_lidar_slam_2d_go1/src/slamrplidarV2.0/slam_planner/scripts/startUp.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=false
+Name[en_US]=Lidar-SLAM-2D
+Name=Robot-SLAM-System
+Comment[en_US]=start 2d lidar slam
+Comment=Start slam application in NX board of A1 robot

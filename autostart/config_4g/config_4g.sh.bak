@@ -1,0 +1,61 @@
+#!/bin/bash
+
+log=${HOME}/ICE9/autostart/.log
+
+echo "[config_4g] started..." >> ${log}
+
+export SUDO_ASKPASS=${HOME}/Unitree/autostart/passwd.sh
+
+is_nano_15=`ifconfig -a|grep "eth0: " -A1|grep "inet 192.168.123.15"|awk '{print $2}'`
+
+function add_gateway
+{
+	if [ ${is_nano_15} ]; then
+		ipaddr=`ifconfig -a|grep "eth[0-9]: " -A1|grep "inet [0-9]"|grep -v 192.168.123|awk '{print $2}'`
+		while [ ! ${ipaddr} ]; do
+	    		echo "Waiting for 4G modem..."
+	    		ipaddr=`ifconfig -a|grep "eth[0-9]: " -A1|grep "inet [0-9]"|grep -v 192.168.123|awk '{print $2}'`
+	    		sleep 1
+		done
+		interf=`ifconfig -a|grep ${ipaddr} -B1|grep eth|awk '{print $1}'|tr -d ":"`
+		echo "[config_4g] IP:${ipaddr} interface:${interf}." >> ${log}
+	else
+		ipaddr=192.168.123.15
+		interf=eth0
+	fi	
+	sudo -A route add default gw ${ipaddr} ${interf}
+	echo "Gateway added. Continue monitoring gateway changes..."
+}
+
+function add_iptable_chains
+{
+	sudo -A iptables -F
+	sudo -A iptables -t nat -F
+	sudo -A iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+	sudo -A iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+	sudo -A iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+	sudo -A iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+}
+
+function delete_rp_gw
+{
+	gw=`route -n | grep 192.168.123.161`
+	if [ ${gw} ]; then
+		sudo -A route delete default gw 192.168.123.161
+	fi
+}
+
+delete_rp_gw
+add_gateway
+add_iptable_chains
+
+while true; do
+    delete_rp_gw
+    interf_1=`route -n | grep 0.0.0.0 | head -1 |awk '{print $8}'`
+    if [[ ${interf_1} != ${interf} ]]; then
+        sudo -A route delete default gw ${ipaddr} ${interf}
+        add_gateway
+    fi
+    sleep 1
+done
+

@@ -1,0 +1,5 @@
+[main]:        ICE9 autostart list started.
+[config_4g]:   started...
+[main]:        ICE9 autostart list reaches the end.
+[config_4g]:   Ip tables added
+[config_4g]:   [config_4g]: Deleted default gateway 192.168.123.161

@@ -1,11 +1,15 @@
-# Copy autostart files
+export SUDO_ASKPASS=${HOME}/Unitree/autostart/passwd.sh
+
+# Install and deactivate autostart files
 autostart_dir=${HOME}/.config/autostart
-cp files/ice9_autostart.sh.desktop ${autostart_dir}/ice9_autostart.sh.desktop
+cp files/ice9_autostart.sh ${autostart_dir}/ice9_autostart.sh.desktop
+
+mv ${autostart_dir}/update.sh.desktop ${autostart_dir}/upate.sh.desktop.bak
 if [ -f ${autostart_dir}/slam_planner.sh.desktop ]; then
-    cp files/slam_planner.sh.desktop ${autostart_dir}/slam_planner.sh.desktop
+    mv ${autostart_dir}/slam_planner.sh.desktop ${autostart_dir}/slam_planner.sh.desktop.bak
 fi
 if [ -f ${autostart_dir}/start.sh.desktop ]; then
-    cp files/start.sh.desktop ${autostart_dir}/start.sh.desktop
+    mv ${autostart_dir}/start.sh.desktop ${autostart_dir}/start.sh.desktop.bak
 fi
 
 # Pull submodules
@@ -19,6 +23,11 @@ git checkout tags/v3.8.0
 cd ../..
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
+
+# Install Husarnet
+sudo -A apt install ca-certificates -y
+curl https://install.husarnet.com/install.sh | sudo -A bash
+# TODO add husarnet join command
 
 # Complete
 echo "Installation complete."

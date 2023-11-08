@@ -1,7 +1,7 @@
 #!/bin/bash
 
 log() {
-	printf "[%-12.12s]: %s\n" "lch_unitree" "$1" >> ${HOME}/ICE9/autostart/.log
+	printf "[%-12.12s]: %s\n" "lch_unitree" "$1" >> ${HOME}/Unitree_GPS_Integration/autostart/.log
 	echo $1
 }
 
@@ -9,8 +9,8 @@ log "Started..."
 
 is_nano_15=`ifconfig -a|grep "eth0: " -A1|grep "inet 192.168.123.15"|awk '{print $2}'`
 is_nano_13=`ifconfig -a|grep "eth0: " -A1|grep "inet 192.168.123.13"|awk '{print $2}'`
-launch_scripts_path=${HOME}/ICE9/autostart/scripts/launch
-ros_setup=${HOME}/ICE9/autostart/scripts/ros_setup.bash
+launch_scripts_path=${HOME}/Unitree_GPS_Integration/autostart/scripts/launch
+ros_setup=${HOME}/Unitree_GPS_Integration/autostart/scripts/ros_setup.bash
 
 source ${ros_setup}
 while [[ ! $(rostopic list) ]]; do

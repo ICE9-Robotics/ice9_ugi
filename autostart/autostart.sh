@@ -1,13 +1,13 @@
 #!/bin/bash
 
-log_file=${HOME}/ICE9/autostart/.log
+log_file=${HOME}/Unitree_GPS_Integration/autostart/.log
 log() {
 	printf "[%-12.12s]: %s\n" "main" "$1" >> ${log_file}
 	echo $1
 }
 
 export SUDO_ASKPASS=${HOME}/Unitree/autostart/passwd.sh
-ice9_scripts=/home/unitree/ICE9/autostart
+ice9_scripts=/home/unitree/Unitree_GPS_Integration/autostart
 
 mv ${log_file} ${log_file}.backup
 log "ICE9 autostart list started."

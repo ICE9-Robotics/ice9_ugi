@@ -1,7 +1,7 @@
 #!/bin/bash
 
 log() {
-	printf "[%-12.12s]: %s\n" "config_4g" "$1" >> ${HOME}/ICE9/autostart/.log
+	printf "[%-12.12s]: %s\n" "config_4g" "$1" >> ${HOME}/Unitree_GPS_Integration/autostart/.log
 	echo $1
 }
 

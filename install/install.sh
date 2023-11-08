@@ -14,7 +14,7 @@ fi
 
 # Pull submodules
 cd ..
-git submodule update --init
+git submodule update --init -f
 cd ice9_ws/src/unitree_legged_sdk/
 git fetch --tag
 git checkout tags/v3.8.0

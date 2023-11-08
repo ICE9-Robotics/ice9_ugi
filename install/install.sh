@@ -25,9 +25,15 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 
 # Install Husarnet
-sudo -A apt install ca-certificates -y
-curl https://install.husarnet.com/install.sh | sudo -A bash
+if [ -f /etc/apt/sources.list.d/husarnet.list ]; then
+    echo "Husarnet already installed."
+else
+    sudo -A apt-get install ca-certificates -y
+    curl https://install.husarnet.com/install.sh | sudo -A bash
+fi
 # TODO add husarnet join command
 
 # Complete
 echo "Installation complete."
+
+exit 0

@@ -17,6 +17,6 @@ fi
 
 export ROS_IPV6=on
 export ROS_MASTER_URI=http://master:11311
-source ${HOME}/ice9_ws/devel/setup.bash
+source ${HOME}/Unitree_GPS_Integration/ice9_ws/devel/setup.bash
 
 log_roscore "Done."

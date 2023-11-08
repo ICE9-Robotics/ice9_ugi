@@ -10,6 +10,16 @@ kill_() {
 	fi
 }
 
+kill_all() {
+	kill_ launch_auxiliary
+	kill_ launch_camera
+	kill_ launch_reach
+	kill_ launch_slam
+	kill_ launch_unitree_base
+	kill_ launch_roscore
+	kill_ config_4g
+}
+
 if [[ $1 == "-h" ]]; then
 	echo "Usage: $0"
 	echo "This script is used to launch all the necessary nodes for the ICE9 project."
@@ -32,13 +42,7 @@ elif [[ $1 == "-l" || $1 == "--log" ]]; then
     cat ${HOME}/Unitree_GPS_Integration/autostart/.log
     exit 0
 elif [[ $1 == "-ka" || $1 == "--killall" ]]; then
-	kill_ launch_auxiliary
-	kill_ launch_camera
-	kill_ launch_reach
-	kill_ launch_slam
-	kill_ launch_unitree_base
-	kill_ launch_roscore
-	kill_ config_4g
+	kill_all
 	exit 0
 elif [[ $1 == "-k" || $1 == "--kill" ]]; then
 	if [[ $2 != "launch_auxiliary" && $2 != "launch_camera" && $2 != "launch_reach" && $2 != "launch_slam" && $2 != "launch_unitree_base" && $2 != "launch_roscore" && $2 != "config_4g" ]]; then
@@ -50,12 +54,7 @@ elif [[ $1 == "-k" || $1 == "--kill" ]]; then
 	fi
 	exit 0
 elif [[ $1 == "-r" || $1 == "--restart" ]]; then
-	kill_auxiliary
-	kill_camera
-	kill_reach
-	kill_slam
-	kill_unitree_base
-	kill_roscore
+	kill_all
 fi
 
 

@@ -1,12 +1,15 @@
 [submodule "ice9_ws/src/ice9_unitree"]
 	path = ice9_ws/src/ice9_unitree
 	url = https://github.com/ICE9-Robotics/ice9_unitree.git
+	branch = master
 [submodule "ice9_ws/src/emlid_reach_ros"]
 	path = ice9_ws/src/emlid_reach_ros
 	url = https://github.com/tmxkn1/emlid_reach_ros.git
+	branch = master
 [submodule "ice9_ws/src/nmea_msgs"]
 	path = ice9_ws/src/nmea_msgs
 	url = https://github.com/tmxkn1/nmea_msgs.git
+	branch = master
 [submodule "ice9_ws/src/robot_localization"]
 	path = ice9_ws/src/robot_localization
 	url = https://github.com/cra-ros-pkg/robot_localization.git
@@ -22,9 +25,12 @@
 [submodule "ice9_ws/src/rtkgps_odom_matcher"]
 	path = ice9_ws/src/rtkgps_odom_matcher
 	url = https://github.com/tmxkn1/rtkgps_odom_matcher.git
+	branch = master
 [submodule "ice9_ws/src/follow_waypoints"]
 	path = ice9_ws/src/follow_waypoints
 	url = https://github.com/ICE9-Robotics/follow_waypoints.git
+	branch = master
 [submodule "ice9_ws/src/mjpeg_cam"]
 	path = ice9_ws/src/mjpeg_cam
 	url = https://github.com/rsmohamad/mjpeg_cam.git
+	branch = master

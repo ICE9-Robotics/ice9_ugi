@@ -1,33 +1,13 @@
 #!/bin/bash
 
-kill_auxiliary() {
-	pid=`ps ux | grep -v grep | grep "bash -c" | grep launch_auxiliary | head -1 | awk '{print $2}'`
-	kill ${pid}
-}
-
-kill_camera() {
-	pid=`ps ux | grep -v grep | grep "bash -c" | grep launch_camera | head -1 | awk '{print $2}'`
-	kill ${pid}
-}
-
-kill_reach() {
-	pid=`ps ux | grep -v grep | grep "bash -c" | grep launch_reach | head -1 | awk '{print $2}'`
-	kill ${pid}
-}
-
-kill_slam() {
-	pid=`ps ux | grep -v grep | grep "bash -c" | grep launch_slam | head -1 | awk '{print $2}'`
-	kill ${pid}
-}
-
-kill_unitree_base() {
-	pid=`ps ux | grep -v grep | grep "bash -c" | grep launch_unitree_base | head -1 | awk '{print $2}'`
-	kill ${pid}
-}
-
-kill_roscore() {
-	pid=`ps ux | grep -v grep | grep "bash -c" | grep launch_roscore | head -1 | awk '{print $2}'`
-	kill ${pid}
+kill_() {
+	pid=`ps ux | grep -v grep | grep "bash -c" | grep $1 | head -1 | awk '{print $2}'`
+	if [ ${pid} ]; then
+		kill ${pid}
+		echo "Killed $1."
+	else
+		echo "Can't find the process for $1."
+	fi
 }
 
 if [[ $1 == "-h" ]]; then
@@ -38,36 +18,34 @@ if [[ $1 == "-h" ]]; then
     echo "  -l, --log			display log and exit"
 	echo "  -ka, --killall		kill all processes launched by autostart"
 	echo "  -k [name], --kill [name]	kill a specific process launched by autostart"
-	echo "  	[name] can be one of the following:"
-	echo "		auxiliary, camera, reach, slam, unitree_base, roscore"
-	echo "  -r, --restart		restart all processes launched by autostart"
+	echo "	[name] can be one of the following:"
+	echo "	launch_auxiliary"
+	echo "	launch_camera"
+	echo "	launch_reach"
+	echo "	launch_slam"
+	echo "	launch_unitree_base"
+	echo "	launch_roscore"
+	echo "	config_4g"
+	echo "  -r, --restart			restart all processes launched by autostart"
     exit 0
 elif [[ $1 == "-l" || $1 == "--log" ]]; then
     cat ${HOME}/Unitree_GPS_Integration/autostart/.log
     exit 0
 elif [[ $1 == "-ka" || $1 == "--killall" ]]; then
-	kill_auxiliary
-	kill_camera
-	kill_reach
-	kill_slam
-	kill_unitree_base
-	kill_roscore
+	kill_ launch_auxiliary
+	kill_ launch_camera
+	kill_ launch_reach
+	kill_ launch_slam
+	kill_ launch_unitree_base
+	kill_ launch_roscore
+	kill_ config_4g
 	exit 0
 elif [[ $1 == "-k" || $1 == "--kill" ]]; then
-	if [[ $2 == "auxiliary" ]]; then
-		kill_auxiliary
-	elif [[ $2 == "camera" ]]; then
-		kill_camera
-	elif [[ $2 == "reach" ]]; then
-		kill_reach
-	elif [[ $2 == "slam" ]]; then
-		kill_slam
-	elif [[ $2 == "unitree_base" ]]; then
-		kill_unitree_base
-	elif [[ $2 == "roscore" ]]; then
-		kill_roscore
-	else
+	if [[ $2 != "launch_auxiliary" && $2 != "launch_camera" && $2 != "launch_reach" && $2 != "launch_slam" && $2 != "launch_unitree_base" && $2 != "launch_roscore" && $2 != "config_4g" ]]; then
 		echo "Error! Unknown process name."
+		exit 1
+	else
+		kill_ $2
 		exit 1
 	fi
 	exit 0

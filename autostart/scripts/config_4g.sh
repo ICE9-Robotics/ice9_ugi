@@ -1,7 +1,8 @@
 #!/bin/bash
 
 log() {
-		printf "%-15.15s%s\n" "[config_4g]:" "$1" >> ${HOME}/ICE9/autostart/.log
+	printf "[%-12.12s]: %s\n" "config_4g" "$1" >> ${HOME}/ICE9/autostart/.log
+	echo $1
 }
 
 log "Started..."

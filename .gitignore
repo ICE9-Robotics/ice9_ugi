@@ -1,2 +1,11 @@
 .log
 .log.backup
+
+build
+devel
+
+.vscode
+
+.DS_Store
+
+ice9_ws/src/CMakeLists.txt

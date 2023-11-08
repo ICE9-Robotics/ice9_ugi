@@ -15,9 +15,14 @@ if [ ${is_nano_15} ]; then
 	done
 	log "Husarnet ready, starting roscore..."
 	sleep 1
+
 	source ${HOME}/Unitree_GPS_Integration/autostart/scripts/ros_setup.bash
-	roscore
-	log "Error! roscore exited."
+	while true; do
+		roscore
+		log "Error! roscore exited."
+		log "Restarting roscore..."
+		sleep 1
+	done
 else
 	log "Not Nano 15, skipped."
 fi

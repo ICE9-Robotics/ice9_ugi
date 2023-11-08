@@ -6,6 +6,10 @@ log() {
 }
 
 log "Launching unitree_legged_real..."
-roslaunch unitree_legged_real real.launch
-log "Error! unitree_legged_real exited."
+while true; do
+	roslaunch unitree_legged_real real.launch
+	log "Error! unitree_legged_real exited."
+	log "Restarting unitree_legged_real..."
+	sleep 1
+done
 log "Ended."

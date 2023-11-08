@@ -19,6 +19,10 @@ else
 fi
 
 log "Launching mjpeg_cam..."
-roslaunch ice9_unitree mjpeg_cam.launch device_name:=/dev/video1
-log "Error! mjpeg_cam exited."
+while true; do
+	roslaunch ice9_unitree mjpeg_cam.launch device_name:=/dev/video1
+	log "Error! mjpeg_cam exited."
+	log "Restarting mjpeg_cam..."
+	sleep 1
+done
 log "Ended."

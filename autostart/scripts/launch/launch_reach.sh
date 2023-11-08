@@ -6,6 +6,10 @@ log() {
 }
 
 log "Launching reach_ros..."
-roslaunch ice9_unitree reach_ros.launch
-log "Error! reach_ros exited."
+while true; do
+	roslaunch ice9_unitree reach_ros.launch
+	log "Error! reach_ros exited."
+	log "Restarting reach_ros..."
+	sleep 1
+done
 log "Ended."

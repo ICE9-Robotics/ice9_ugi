@@ -6,6 +6,10 @@ log() {
 }
 
 log "Launching unitree_auxiliary..."
-roslaunch ice9_unitree unitree_auxiliary.launch
-log "Error! unitree_auxiliary exited."
+while true; do
+	roslaunch ice9_unitree unitree_auxiliary.launch
+	log "Error! unitree_auxiliary exited."
+	log "Restarting unitree_auxiliary..."
+	sleep 1
+done
 log "Ended."

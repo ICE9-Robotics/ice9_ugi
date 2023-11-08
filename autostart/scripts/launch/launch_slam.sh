@@ -5,6 +5,10 @@ log() {
 	echo $1
 }
 log "Launching slam_planner_online..."
-roslaunch slam_planner slam_planner_online.launch
-log "Error! slam_planner_online exited."
+while true; do
+	roslaunch slam_planner slam_planner_online.launch
+	log "Error! slam_planner_online exited."
+	log "Restarting slam_planner_online..."
+	sleep 1
+done
 log "Ended."

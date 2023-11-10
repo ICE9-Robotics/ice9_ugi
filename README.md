@@ -1,2 +1,2 @@
-# ICE9_Unitree_GPS
-Software package for Unitree Go1 GPS
+# ice9_ugi
+Software package for Unitree GPS Integration (UGI). This software supports Unitree GO1 quadruped.

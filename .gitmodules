@@ -34,3 +34,6 @@
 	path = ice9_ws/src/mjpeg_cam
 	url = https://github.com/rsmohamad/mjpeg_cam.git
 	branch = master
+[submodule "ice9_ws/src/unitree_ugi_diagnostics"]
+	path = ice9_ws/src/unitree_ugi_diagnostics
+	url = https://github.com/ICE9-Robotics/unitree_ugi_diagnostics.git

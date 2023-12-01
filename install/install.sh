@@ -2,7 +2,7 @@ export SUDO_ASKPASS=${HOME}/Unitree/autostart/passwd.sh
 
 # Install and deactivate autostart files
 autostart_dir=${HOME}/.config/autostart
-cp files/ice9_autostart.sh ${autostart_dir}/ice9_autostart.sh.desktop
+cp files/ice9_autostart.sh.desktop ${autostart_dir}/ice9_autostart.sh.desktop
 
 if [ -f ${autostart_dir}/update.sh.desktop ]; then
     mv ${autostart_dir}/update.sh.desktop ${autostart_dir}/update.sh.desktop.bak

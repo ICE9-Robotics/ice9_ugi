@@ -1,7 +1,7 @@
 #!/bin/bash
 
 log_roscore() {
-	printf "[%-12.12s]: %s\n" "ros_setup" "$1" >> ${HOME}/Unitree_GPS_Integration/autostart/.log
+	printf "[%-12.12s]: %s\n" "ros_setup" "$1" >> ${HOME}/ice9_ugi/autostart/.log
 	echo $1
 }
 
@@ -17,6 +17,6 @@ fi
 
 export ROS_IPV6=on
 export ROS_MASTER_URI=http://master:11311
-source ${HOME}/Unitree_GPS_Integration/ice9_ws/devel/setup.bash
+source ${HOME}/ice9_ugi/ice9_ws/devel/setup.bash
 
 log_roscore "Done."

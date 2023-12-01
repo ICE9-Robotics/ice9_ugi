@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/unitree/Unitree_GPS_Integration/autostart/autostart.sh
+Exec=/home/unitree/ice9_ugi/autostart/autostart.sh
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

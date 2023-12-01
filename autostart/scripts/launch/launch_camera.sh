@@ -1,7 +1,7 @@
 #!/bin/bash
 
 log() {
-	printf "[%-12.12s]: %s\n" "lch_camera" "$1" >> ${HOME}/Unitree_GPS_Integration/autostart/.log
+	printf "[%-12.12s]: %s\n" "lch_camera" "$1" >> ${HOME}/ice9_ugi/autostart/.log
 	echo $1
 }
 

@@ -39,7 +39,7 @@ if [[ $1 == "-h" ]]; then
 	echo "  -r, --restart			restart all processes launched by autostart"
     exit 0
 elif [[ $1 == "-l" || $1 == "--log" ]]; then
-    cat ${HOME}/Unitree_GPS_Integration/autostart/.log
+    cat ${HOME}/ice9_ugi/autostart/.log
     exit 0
 elif [[ $1 == "-ka" || $1 == "--killall" ]]; then
 	kill_all
@@ -58,14 +58,14 @@ elif [[ $1 == "-r" || $1 == "--restart" ]]; then
 fi
 
 
-log_file=${HOME}/Unitree_GPS_Integration/autostart/.log
+log_file=${HOME}/ice9_ugi/autostart/.log
 log() {
 	printf "[%-12.12s]: %s\n" "main" "$1" >> ${log_file}
 	echo $1
 }
 
 export SUDO_ASKPASS=${HOME}/Unitree/autostart/passwd.sh
-ice9_scripts=${HOME}/Unitree_GPS_Integration/autostart
+ice9_scripts=${HOME}/ice9_ugi/autostart
 
 mv ${log_file} ${log_file}.backup
 log "ICE9 autostart list started."

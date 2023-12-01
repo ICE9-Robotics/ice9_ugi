@@ -1,7 +1,7 @@
 #!/bin/bash
 
 log() {
-	printf "[%-12.12s]: %s\n" "lch_roscore" "$1" >> ${HOME}/Unitree_GPS_Integration/autostart/.log
+	printf "[%-12.12s]: %s\n" "lch_roscore" "$1" >> ${HOME}/ice9_ugi/autostart/.log
 	echo $1
 }
 
@@ -16,7 +16,7 @@ if [ ${is_nano_15} ]; then
 	log "Husarnet ready, starting roscore..."
 	sleep 1
 
-	source ${HOME}/Unitree_GPS_Integration/autostart/scripts/ros_setup.bash
+	source ${HOME}/ice9_ugi/autostart/scripts/ros_setup.bash
 	while true; do
 		roscore
 		log "Error! roscore exited."

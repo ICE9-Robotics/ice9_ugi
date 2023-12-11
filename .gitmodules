@@ -37,3 +37,6 @@
 [submodule "ice9_ws/src/unitree_ugi_diagnostics"]
 	path = ice9_ws/src/unitree_ugi_diagnostics
 	url = https://github.com/ICE9-Robotics/unitree_ugi_diagnostics.git
+[submodule "ice9_ws/src/ros_internet_speed"]
+	path = ice9_ws/src/ros_internet_speed
+	url = https://github.com/ICE9-Robotics/ros_internet_speed.git

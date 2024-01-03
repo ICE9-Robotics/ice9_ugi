@@ -6,7 +6,7 @@ log() {
 }
 log "Launching slam_planner_online..."
 while true; do
-	roslaunch slam_planner slam_planner_online.launch
+	roslaunch ice9_unitree navigation.launch
 	log "Error! slam_planner_online exited."
 	log "Restarting slam_planner_online..."
 	sleep 1

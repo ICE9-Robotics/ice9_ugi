@@ -7,7 +7,7 @@ log() {
 
 log "Launching unitree_legged_real..."
 while true; do
-	roslaunch unitree_legged_real real.launch
+	roslaunch ice9_unitree unitree_legged_real.launch
 	log "Error! unitree_legged_real exited."
 	log "Restarting unitree_legged_real..."
 	sleep 1

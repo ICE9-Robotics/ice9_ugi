@@ -40,3 +40,7 @@
 [submodule "ice9_ws/src/ros_internet_speed"]
 	path = ice9_ws/src/ros_internet_speed
 	url = https://github.com/ICE9-Robotics/ros_internet_speed.git
+[submodule "ice9_ws/src/laser_filters"]
+	path = ice9_ws/src/laser_filters
+	url = https://github.com/ros-perception/laser_filters.git
+	branch = kinetic-devel
